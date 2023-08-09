@@ -13,6 +13,7 @@
     <link id="pagestyle" href="./assets/css/soft-design-system-pro.min.css?v=1.0.9" rel="stylesheet">
     <link href="./assets/css/calendar.css" rel="stylesheet">
     <link href="./assets/css/modification.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"/>
 </head>
 <body class="presentation-page">
 
@@ -95,23 +96,15 @@
             <div class="container pb-lg-8 pb-5 pt-5 postion-relative z-index-2 position-relative">
                 <div class="row">
                     <h3 class="text-white" style="margin-bottom: 2rem;">这是一个留言板~</h3>
-                    <!-- 来必力 City 版安装代码 -->
-                    <div id="lv-container" data-id="city" data-uid="MTAyMC81MzA2Ni8yOTU0Mg==">
-                        <script type="text/javascript">
-                        (function(d, s) {
-                            var j, e = d.getElementsByTagName(s)[0];
-                        
-                            if (typeof LivereTower === 'function') { return; }
-                        
-                            j = d.createElement(s);
-                            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                            j.async = true;
-                        
-                            e.parentNode.insertBefore(j, e);
-                        })(document, 'script');
-                        </script>
-                    </div>
-                    <!-- City 版安装代码已完成 -->
+                      <div id="waline"></div>
+                      <script type="module">
+                        import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+                    
+                        init({
+                          el: '#waline',
+                          serverURL: 'https://your-domain.vercel.app',
+                        });
+                      </script>
                 </div>
             </div>
         </div>
