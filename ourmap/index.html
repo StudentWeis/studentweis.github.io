@@ -1,0 +1,68 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+
+	<!--引入jQuery框架-->
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<!--引入jVectorMap库-->
+	<script type="text/javascript" src="js/jquery-jvectormap-1.2.2.min.js"></script>
+	<!--引入样式表-->
+	<link href="js/jquery-jvectormap-1.2.2.css" rel="stylesheet" media="screen">
+	<!--引入中国地图数据库-->
+	<script type="text/javascript" src="js/jquery-jvectormap-cn-merc-en.js"></script>
+</head>
+
+<body>
+	<!--background-color: 地图背景颜色-->
+	<div id="map" style="background-color:#353535"> </div>
+	<script>
+		$('#map').vectorMap({
+
+			// 此处更改地图
+			map: 'cn_merc_en',   // 中国地图
+			backgroundColor: 'transparent',
+			zoomMin: 0.9, // 鼠标缩放时的最小比例
+			zoomMax: 2.4, // 鼠标缩放时的最大比例
+			focusOn: {
+				x: 0.55,
+				y: 2,
+				scale: 0.9
+			},
+			regionStyle: {
+				initial: {
+					fill: '#e5e5e5',   // 地图颜色
+					"fill-opacity": 1, // 省份（州）是否隐藏，鼠标滑动时显示; 1：显示，2：隐藏。
+					stroke: 'none',
+					"stroke-width": 0,
+					"stroke-opacity": 1
+				},
+				hover: {
+					fill: '#ccc',  // 鼠标滑动至某省份的高亮颜色。
+					"fill-opacity": 0.8
+				},
+				selected: {
+					fill: 'yellow'
+				},
+				selectedHover: {}
+			},
+			markerStyle: {
+				initial: {
+					fill: '#fd8888', // 足迹位置的填充颜色
+					stroke: '#fff'   // 足迹位置的描边颜色
+				},
+				hover: {
+					fill: '#fd2020', // 鼠标滑动至足迹位置后的填充颜色
+					stroke: '#fff',  // 鼠标滑动至足迹位置后的描边颜色
+					"fill-opacity": 0.8
+				},
+			},
+			markers: [ // 足迹位置 https://lbs.qq.com/getPoint 获取经纬度
+				{ latLng: [39.90, 116.41], name: '2023.06🥰北京-圆明园颐和园' },
+				{ latLng: [39.03, 117.71], name: '2023.04🐟天津滨海新区-海博馆' },
+				{ latLng: [39.82, 119.50], name: '2023.04🌊北戴河-鸽子窝阿那亚' }
+			]
+		});
+	</script>
+
+</html>
